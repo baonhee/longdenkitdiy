@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Vietnam DIY Lantern Kit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
+background:linear-gradient(180deg,#1a2a6c,#b21f1f,#fdbb2d); /* nền sáng hơn */
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+/* Moon */
+.moon{
+position:fixed;top:40px;right:80px;
+width:140px;height:140px;border-radius:50%;
+background:#fff9d6;
+box-shadow:0 0 150px gold;
+animation:glow 3s infinite alternate;
+}
+@keyframes glow{from{box-shadow:0 0 60px gold;}to{box-shadow:0 0 200px gold;}}
+
+/* Lantern animation */
+.lantern{
+position:fixed;bottom:-100px;font-size:42px;
+animation:fly linear infinite;
+}
+@keyframes fly{to{transform:translateY(-130vh);}}
+
+/* Shooting stars */
+.star{
+position:fixed;width:2px;height:100px;
+background:linear-gradient(white,transparent);
+animation:shoot 2s linear;
+}
+@keyframes shoot{to{transform:translate(600px,300px);opacity:0;}}
+
+/* Fireworks */
+.firework{
+position:fixed;width:6px;height:6px;border-radius:50%;
+background:white;animation:boom 1.5s linear;
+}
+@keyframes boom{to{transform:scale(30);opacity:0;}}
+
+/* Glass card */
+.card{
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(18px);
+padding:30px;border-radius:30px;
+margin:40px auto;width:90%;max-width:1000px;
+box-shadow:0 0 40px rgba(255,255,255,.4);
+color:#111;
+}
+
+/* Nav */
+nav{
+position:fixed;top:0;width:100%;
+background:rgba(255,255,255,.2);
+backdrop-filter:blur(10px);
+padding:10px;z-index:999;
+}
+nav a{color:white;margin:12px;text-decoration:none;font-weight:600;}
+
+img.product{
+width:100%;
+max-width:420px;
+border-radius:20px;
+box-shadow:0 0 40px rgba(0,0,0,.4);
+margin:15px;
+}
+
+h1{font-size:42px;color:white;}
+p{font-size:18px;line-height:1.6;}
+
+button{
+padding:14px 28px;border:none;border-radius:30px;
+font-size:16px;font-weight:600;
+background:linear-gradient(135deg,#ffdd00,#ff8c00);
+color:black;cursor:pointer;
+box-shadow:0 0 20px gold;
+}
+button:hover{transform:scale(1.07);background:white;}
+</style>
+</head>
+
+<body>
+
+<div class="moon"></div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#story">Story</a>
+<a href="#products">Products</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<br><br><br>
+
+<!-- HOME -->
+<section id="home" class="card">
+<h1>🏮 Vietnam DIY Lantern Kit</h1>
+<p>A Cultural Craft Experience from Vietnam to the World</p>
+</section>
+
+<!-- STORY -->
+<section id="story" class="card">
+<h2>The Story Behind Our Lantern Kit</h2>
+
+<p>
+For generations, Vietnamese artisans have handcrafted lanterns from bamboo and colorful paper, creating glowing symbols of childhood memories and family unity during Mid-Autumn Festival.
+</p>
+
+<p>
+In many villages, children gather around parents and grandparents to cut paper, bend bamboo frames, and light lanterns together. These moments represent connection, creativity, and cultural identity.
+</p>
+
+<p>
+Vietnam DIY Lantern Kit was created to bring this authentic tradition to modern families in Vietnam and overseas Vietnamese communities in the United States. It allows parents and children to build lanterns together while learning Vietnamese cultural stories.
+</p>
+
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="card">
+<h2>Authentic Handmade Lantern Craft</h2>
+
+<!-- ẢNH THẬT VIỆT NAM -->
+<img class="product" src="https://vietnam.travel/sites/default/files/inline-images/mid-autumn%20festival%20Vietnam%202019-10.jpg">
+<img class="product" src="https://media.baobinhphuoc.com.vn/upload/news/9_2022/tt_10102609092022.jpg">
+<img class="product" src="https://dantra.vn/uploads/san-pham/le-vo-song-anh/le-vo-song-anh-60.jpg">
+
+<p>
+Our kit includes bamboo frames, Vietnamese paper, LED lights, and cultural storytelling cards inspired by real Vietnamese lantern-making villages.
+</p>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="card">
+<h2>Join Our Cultural Startup</h2>
+<p>Receive updates, cultural stories, and new kit launches.</p>
+
+<input type="email" placeholder="Your email">
+<button>Subscribe</button>
+
+<p>Email: hello@vietdiykit.com</p>
+</section>
+
+<script>
+// Random lanterns
+for(let i=0;i<12;i++){
+ let l=document.createElement("div");
+ l.className="lantern";
+ l.innerHTML="🏮";
+ l.style.left=Math.random()*100+"%";
+ l.style.animationDuration=(10+Math.random()*10)+"s";
+ document.body.appendChild(l);
+}
+
+// Shooting stars
+setInterval(()=>{
+ let s=document.createElement("div");
+ s.className="star";
+ s.style.top=Math.random()*200+"px";
+ s.style.left="-100px";
+ document.body.appendChild(s);
+ setTimeout(()=>s.remove(),2000);
+},1200);
+
+// Fireworks
+setInterval(()=>{
+ let f=document.createElement("div");
+ f.className="firework";
+ f.style.left=Math.random()*100+"%";
+ f.style.top=Math.random()*60+"%";
+ document.body.appendChild(f);
+ setTimeout(()=>f.remove(),1500);
+},2500);
+
+// Music
+let audio=new Audio("https://cdn.pixabay.com/download/audio/2022/10/30/audio_88c20c5d08.mp3");
+audio.loop=true;
+audio.volume=0.25;
+audio.play();
+</script>
+
+</body>
+</html>
